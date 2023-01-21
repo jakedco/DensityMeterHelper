@@ -395,6 +395,7 @@ button {
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
