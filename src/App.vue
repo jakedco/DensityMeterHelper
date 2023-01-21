@@ -2,11 +2,174 @@
   <div id="app">
     <h1>XState Vue Process Controller MVP POC</h1>
     <h2>(Using Stately's Template...)</h2>
-    <button @click="send('Power Flow Meter')" :disabled="state.matches('Flow Meter On')">Power Flow Meter</button>
-    <button @click="send('Power Off Flow Meter')" :disabled="state.matches('Flow Meter Off')">Power Off Flow Meter</button>
-    <code>
-      {{ state.matches("Flow Meter On") ? 'Flow Meter On' : 'Flow Meter Off'}}
-    </code>
+
+    <!-- Flow Meter -->
+    <div class="pa-5">
+      <button
+        v-if="state.matches('Flow Meter Off')"
+        @click="send('Power Flow Meter')">
+        Power Flow Meter
+      </button>
+      <button
+        v-if="state.matches('Flow Meter On')"
+        @click="send('Power Off Flow Meter')"
+        :disabled="!state.matches('Flow Meter On')">
+        Power off Flow Meter
+      </button>
+    </div>
+
+    <!-- Density Meter -->
+    <div class="pa-5">
+      <button
+        v-if="state.matches('Flow Meter On')"
+        @click="send('Turn on Density Meter')">
+        Turn on Density Meter
+      </button>
+      <button
+        v-if="state.matches('Density Meter On')"
+        @click="send('Turn Off Density Meter')"
+        >
+        Turn off Density Meter
+      </button>
+    </div>
+
+    <!-- Pump -->
+    <div class="pa-5">
+      <button
+        v-if="state.matches('Density Meter On')"
+        @click="send('Turn On Pump')">
+        Turn on Pump
+      </button>
+      <button
+        v-if="state.matches('Pump is On')"
+        @click="send('Turn Off Pump')"
+        >
+        Turn off Pump
+      </button>
+    </div>
+
+    <!-- Carrier Fluid -->
+    <div class="pa-5">
+      <button
+        v-if="state.matches('Pump is On')"
+        @click="send('Run Carrier Fluid')">
+        Run Carrier Fluid
+      </button>
+    </div>
+    <div>
+      <button
+        v-if="state.matches('Density Meter Ready to Be Calibrated')"
+        @click="send('Calibrate Density Meter')"
+        >
+        Calibrate Density Meter
+      </button>
+      <button
+        v-if="state.matches('Density Meter Ready to Be Calibrated')"
+        @click="send('Problem')"
+        >
+        Problem
+      </button>
+    </div>
+
+    <!-- Calibration -->
+    <div>
+      <button
+        v-if="state.matches('Meter Calibration Ready to be Verified')"
+        @click="send('Calibration Verified')"
+        >
+        Calibration Verified
+      </button>
+      <button
+        v-if="state.matches('Meter Calibration Ready to be Verified')"
+        @click="send('Calibration Not Verified')"
+        >
+        Calibration Not Verified
+      </button>
+    </div>
+
+    <!-- Verified -->
+    <div>
+      <button
+        v-if="state.matches('Density Meter Calibrated')"
+        @click="send('Turn Off Density Meter')"
+        >
+        Turn Off Density Meter
+      </button>
+      <button
+        v-if="state.matches('Density Meter Calibrated')"
+        @click="send('Turn On Pump')"
+        >
+        Turn On Pump
+      </button>
+    </div>
+
+    <!-- We ready! -->
+    <div>
+      <button
+        v-if="state.matches('Density Meter Ready to Measure SG')"
+        @click="send('Add Solids')"
+        >
+        Add Solids
+      </button>
+      <button
+        v-if="state.matches('Density Meter Ready to Measure SG')"
+        @click="send('Turn Off Pump')"
+        >
+        Turn Off Pump
+      </button>
+    </div>
+
+    <!-- Reading SG -->
+    <div>
+      <button
+        v-if="state.matches('Read SG')"
+        @click="send('Add or Remove Solids as Needed')"
+        >
+        Add or Remove Solids as Needed
+      </button>
+      <button
+        v-if="state.matches('Read SG')"
+        @click="send('Turn Off Pump')"
+        >
+        Turn Off Pump
+      </button>
+    </div>
+
+    <!-- Pump Turned Off -->
+    <div>
+      <button
+        v-if="state.matches('Take a Break / End Shift')"
+        @click="send('Resume Shift')"
+        >
+        Resume Shift
+      </button>
+      <button
+        v-if="state.matches('Take a Break / End Shift')"
+        @click="send('End Shift')"
+        >
+        End Shift
+      </button>
+    </div>
+
+    <!-- Shift Ended -->
+    <div>
+      <button
+        v-if="state.matches('Prepare to Export/Download Data')"
+        @click="send('Export Data')"
+        >
+        Export Data
+      </button>
+    </div>
+
+    <!-- Data Saved -->
+    <div>
+      <button
+        v-if="state.matches('Data Saved')"
+        @click="send('Confirm Data Saved')"
+        >
+        CONFIRM DATA SAVED
+      </button>
+    </div>
   </div>
 </template>
 
