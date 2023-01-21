@@ -2,8 +2,8 @@
   <div id="app">
     <h1>XState Vue Process Controller MVP POC</h1>
     <h2>(Using Stately's Template...)</h2>
-    <button @click="send('Power Flow Meter')">Power Flow Meter</button>
-    <button @click="send('Power Off Flow Meter')">Power Off Flow Meter</button>
+    <button @click="send('Power Flow Meter')" :disabled="state.matches('Flow Meter On')">Power Flow Meter</button>
+    <button @click="send('Power Off Flow Meter')" :disabled="state.matches('Flow Meter Off')">Power Off Flow Meter</button>
     <code>
       {{ state.matches("Flow Meter On") ? 'Flow Meter On' : 'Flow Meter Off'}}
     </code>
