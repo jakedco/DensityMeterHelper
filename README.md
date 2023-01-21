@@ -20,3 +20,8 @@ depending on use case, to help integrate this frontend to a PLC system.
 
 This way, it can prevent improper use of industrial equipment.
 
+#### Logic
+
+Here is the logic from Stately:
+
+![Logic Screenshot](./logic.png)
