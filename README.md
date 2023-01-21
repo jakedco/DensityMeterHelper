@@ -1,6 +1,8 @@
 # DensityMeterHelper
 A tool that uses a state machine that helps people properly use density meters.
 
+You can demo it on my website [here](https://jaked.co/demo).
+
 ---
 
 #### Tools Used
