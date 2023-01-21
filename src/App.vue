@@ -20,7 +20,7 @@
         v-if="state.matches('Flow Meter On')"
         @click="send('Power Off Flow Meter')"
         :disabled="!state.matches('Flow Meter On')">
-        Power off Flow Meter
+        Power Off Flow Meter
       </button>
     </div>
 
@@ -30,14 +30,14 @@
         class="next_button"
         v-if="state.matches('Flow Meter On')"
         @click="send('Turn on Density Meter')">
-        Turn on Density Meter
+        Turn On Density Meter
       </button>
       <button
         class="previous_button"
         v-if="state.matches('Density Meter On')"
         @click="send('Turn Off Density Meter')"
         >
-        Turn off Density Meter
+        Turn Off Density Meter
       </button>
     </div>
 
@@ -47,14 +47,14 @@
         class="next_button"
         v-if="state.matches('Density Meter On')"
         @click="send('Turn On Pump')">
-        Turn on Pump
+        Turn On Pump
       </button>
       <button
         class="previous_button"
         v-if="state.matches('Pump is On')"
         @click="send('Turn Off Pump')"
         >
-        Turn off Pump
+        Turn Off Pump
       </button>
     </div>
 
