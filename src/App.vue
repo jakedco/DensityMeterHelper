@@ -6,7 +6,6 @@
     <h2 v-else>
       The Machine is On
     </h2>
-
     <!-- Flow Meter -->
     <div class="pa-5">
       <button
@@ -207,6 +206,24 @@
         CONFIRM DATA SAVED
       </button>
     </div>
+
+    <div>
+      <button
+        v-if="!historyExpanded"
+        @click="historyExpanded = true">
+        See History
+      </button>
+      <button
+        v-if="historyExpanded"
+        @click="historyExpanded = false">
+        Hide History
+      </button>
+      <div v-if="historyExpanded">
+        <h3 v-for="(element, index) in history" :key="index">
+          {{ element }}
+        </h3>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -336,9 +353,21 @@ const MeterMachine = createMachine({
 
 export default {
   name: "App",
+  data() {
+    return {
+      historyExpanded: false,
+      history: [],
+      stack: []
+    }
+  },
   setup() {
     const { state, send } = useMachine(MeterMachine);
     return { state, send };
+  },
+  watch: {
+    state() {
+      this.history.push(this.state.event.type)
+    }
   }
 };
 </script>
