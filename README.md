@@ -24,3 +24,10 @@ This way, it can prevent improper use of industrial equipment.
 Here is the logic from Stately:
 
 ![Logic Screenshot](./logic.png)
+
+
+#### Notes for future development
+
+In the future, it would be nice if we could dynamically move around devices and choose which devices first need to be on before turning on another device, and the same for turning off devices.
+
+Also, creating some backend to control devices would be nice, to integrate into a PLC. A good example for this would be if we click "Turn on X Device", it would either (1) turn on that device if it can be turned on, OR, with a more advanced state machine, turn on the needed devices in order to turn on the requested device.
