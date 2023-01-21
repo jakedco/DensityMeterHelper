@@ -1,8 +1,5 @@
 # DensityMeterHelper
-A Tool Using State Machines
-
-# DensityMeterHelper
-A Tool Using State Machines that helps people properly use density meters.
+A tool that uses a state machine that helps people properly use density meters.
 
 ---
 
