@@ -1,0 +1,115 @@
+{
+  "id": "Flow Meter",
+  "initial": "Flow Meter Off",
+  "states": {
+    "Flow Meter Off": {
+      "on": {
+        "Power Flow Meter": {
+          "target": "Flow Meter On"
+        }
+      }
+    },
+    "Flow Meter On": {
+      "on": {
+        "Turn on Density Meter": {
+          "target": "Density Meter On"
+        },
+        "Power Off Flow Meter": {
+          "target": "Flow Meter Off"
+        }
+      }
+    },
+    "Density Meter On": {
+      "on": {
+        "Turn On Pump": {
+          "target": "Pump is On"
+        },
+        "Turn Off Density Meter": {
+          "target": "Flow Meter On"
+        }
+      }
+    },
+    "Meter Calibration Ready to be Verified": {
+      "on": {
+        "Calibration Not Verified": {
+          "target": "Pump is On"
+        },
+        "Calibration Verified": {
+          "target": "Density Meter Calibrated"
+        }
+      }
+    },
+    "Density Meter Ready to Measure SG": {
+      "on": {
+        "Add Solids": {
+          "target": "Read SG"
+        },
+        "Turn Off Pump": {
+          "target": "Density Meter Calibrated"
+        }
+      }
+    },
+    "Take a Break / End Shift": {
+      "on": {
+        "Resume Shift": {
+          "target": "Read SG"
+        },
+        "End Shift": {
+          "target": "Prepare to Export/Download Data"
+        }
+      }
+    },
+    "Read SG": {
+      "on": {
+        "Add or Remove Solids as Needed": {},
+        "Turn Off Pump": {
+          "target": "Take a Break / End Shift"
+        }
+      }
+    },
+    "Density Meter Ready to Be Calibrated": {
+      "on": {
+        "Calibrate Density Meter": {
+          "target": "Meter Calibration Ready to be Verified"
+        },
+        "Problem": {
+          "target": "Density Meter On"
+        }
+      }
+    },
+    "Pump is On": {
+      "on": {
+        "Run Carrier Fluid": {
+          "target": "Density Meter Ready to Be Calibrated"
+        },
+        "Turn Off Pump": {
+          "target": "Density Meter On"
+        }
+      }
+    },
+    "Prepare to Export/Download Data": {
+      "on": {
+        "Export Data": {
+          "target": "Data Saved"
+        }
+      }
+    },
+    "Data Saved": {
+      "on": {
+        "Confirm Data Saved": {
+          "target": "Density Meter Ready to Measure SG"
+        }
+      }
+    },
+    "Density Meter Calibrated": {
+      "on": {
+        "Turn On Pump": {
+          "target": "Density Meter Ready to Measure SG"
+        },
+        "Turn Off Density Meter": {
+          "target": "Flow Meter On"
+        }
+      }
+    }
+  }
+}
