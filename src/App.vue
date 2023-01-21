@@ -203,24 +203,26 @@
         v-if="state.matches('Data Saved')"
         @click="send('Confirm Data Saved')"
         >
-        CONFIRM DATA SAVED
+        CONFIRM DATA IS SAVED
       </button>
     </div>
 
     <div>
       <button
         v-if="!historyExpanded"
-        @click="historyExpanded = true">
+        @click="historyExpanded = true"
+        class="help_button">
         See History
       </button>
       <button
         v-if="historyExpanded"
-        @click="historyExpanded = false">
+        @click="historyExpanded = false"
+        class="help_button">
         Hide History
       </button>
       <div v-if="historyExpanded">
         <h3 v-for="(element, index) in history" :key="index">
-          {{ element }}
+          {{ history[history.length + - 1 - index] }}
         </h3>
       </div>
     </div>
@@ -404,6 +406,12 @@ button {
 .previous_button {
   background-color: #e12727;
   color: #fff;
+}
+
+.help_button {
+  background-color: #b5b5b5;
+  margin-top: 100px;
+  color: rgb(0, 0, 0);
 }
 
 </style>
