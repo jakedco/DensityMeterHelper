@@ -1,4 +1,4 @@
-[This was my winning project for State Machine Hackathon by Stately and ODevs](https://www.eventbrite.com/e/state-machine-hackathon-by-stately-and-odevs-tickets-471547420027?aff=ebdssbcitybrowse)
+This was my winning project for [State Machine Hackathon by Stately and ODevs](https://www.eventbrite.com/e/state-machine-hackathon-by-stately-and-odevs-tickets-471547420027?aff=ebdssbcitybrowse)
 
 # DensityMeterHelper
 A tool that uses a state machine that helps people properly use density meters.
